@@ -3,7 +3,7 @@ Zabbix template for monitoring rdiff-backup repositories. This version is implem
 
 # Installation
 1. Copy `zabbix_agentd.d/rdiff-backup.conf` to the Zabbix agent's configuration directory (usually located in `/etc`).
-2. Import template configuration `web-conf/rdiff-backup_template.xml` to Zabbix web frontend.
+2. Import template configuration `templates/rdiff-backup.xml` to Zabbix web frontend.
 
 # Notes
 Because this plugin access `rdiff-backup` metadata directory directly, it fails doing that by default since `rdiff-backup` creates metadata files with least access bits (0700 / 0400) restricted to reading by owner only. In order for this plugin to succeed, either configure agent's commands in `rdiff-backup.conf` to be run as root (eg. via `sudo`) or:
