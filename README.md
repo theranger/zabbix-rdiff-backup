@@ -12,5 +12,5 @@ Because this plugin access `rdiff-backup` metadata directory directly, it fails 
 2. Add user `zabbix` to the groups of each backup client SSH account so that `zabbix` user is allowed to read contents of the directories mentioned in the first step.
 3. Since `rdiff-backup` creates new statistics files on each run (and with owner-only access) something like this must be run periodically (e.g. via `crontab`; adapt the first argument of `find` to your actual backup location):
 ```
-	0  *	* * *	root	find /home -name session_statistics.*.data -exec chmod g+r {} \;
+	0  *	* * *	root	find /home -maxdepth 4 -name session_statistics.*.data -exec chmod g+r {} \;
 ```
